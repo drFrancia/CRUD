@@ -18,7 +18,7 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 
-
+//Configuración del entorno de vistas de la aplicación
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
