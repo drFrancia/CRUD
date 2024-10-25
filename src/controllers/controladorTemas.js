@@ -1,9 +1,13 @@
 //importamos models quien es quien contiene las funciones para interactuar con la db
-import temaModel from '../models/temaModel.js';
+import Topic from '../models/temaModel.js';
 
 
-module.exports = {
-    index : async (req, res) => {
-        const temas = await models.obtenerTemas()
+export const getAllTopics = async(req, res) => {
+    try {
+        const topics = await Topic.getTopics();
+        console.log(topics)
+        res.render('index',{topics});
+    } catch (error) {
+        console.log("Error al obtener todos los temas." + error);
     }
 };
