@@ -1,0 +1,32 @@
+
+<!-- Mostramos todos los temas -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topics and Voting</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Topics</h1>
+    <form action="/topics" method="POST">
+        <input type="text" name="title" placeholder="New topic" required>
+        <button type="submit">Add Topic</button>
+    </form>
+
+    <ul>
+        <% topics.forEach(topic => { %>
+            <li>
+                <%= topic.titulo %> - <%= topic.votos %> votes
+                <form action="/topics/<%= topic.id %>/vote" method="POST">
+                    <button type="submit">Vote</button>
+                </form>
+                <form action="/topics/<%= topic.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
