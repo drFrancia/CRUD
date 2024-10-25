@@ -7,7 +7,6 @@ class Topic {
         return res.rows;
     }
 
-    
     static async createTopic(titulo) {
         await pool.query('INSERT INTO temas (titulo) VALUES ($1)', [titulo]);
     }
