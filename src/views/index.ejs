@@ -15,8 +15,8 @@
     <ul>
         <% topics.forEach(topic => { %>
             <li>
-                <%= topic.titulo %> - <%= topic.votos %> votes
-                <form action="/topics/<%= topic.id %>/vote" method="POST">
+                <%= topic.title %> - <%= topic.votes %> votes
+                <form action="/topics/<%= topic.id %>/votes" method="POST">
                     <button type="submit">Vote</button>
                 </form>
                 <form action="/topics/<%= topic.id %>?_method=DELETE" method="POST">
