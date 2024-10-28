@@ -8,7 +8,7 @@
 <body>
     <h1>Topics</h1>
     <form action="/topics" method="POST">
-        <input type="text" name="titulo" placeholder="New topic" required>
+        <input type="text" name="title" placeholder="New topic" required>
         <button type="submit">Add Topic</button>
     </form>
 
@@ -21,9 +21,10 @@
                 </form>
                 <form action="/topics/<%= topic.id %>?_method=DELETE" method="POST">
                     <button type="submit">Delete</button>
-                </form>
+                </form>                
             </li>
         <% }) %>
     </ul>
+    
 </body>
 </html>
