@@ -3,20 +3,20 @@ import pool from "../postgresClient.js";
 //Funciones para el crud
 class Topic {
     static async getTopics() {
-        const res = await pool.query('SELECT * FROM temas ORDER BY votos DESC');
+        const res = await pool.query('SELECT * FROM topics ORDER BY votes DESC');
         return res.rows;
     }
 
-    static async createTopic(titulo) {
-        await pool.query('INSERT INTO temas (titulo) VALUES ($1)', [titulo]);
+    static async createTopic(tittle) {
+        await pool.query('INSERT INTO topics (tittle) VALUES ($1)', [tittle]);
     }
 
-    static async votarTema(id) {
-        await pool.query('UPDATE temas SET votos = votos + 1 WHERE id = $1', [id]);
+    static async voteTopic(id) {
+        await pool.query('UPDATE topics SET votes = votes + 1 WHERE id = $1', [id]);
     }
 
     static async eliminarTema(id) {
-        await pool.query('DELETE FROM temas WHERE id = $1', [id]);
+        await pool.query('DELETE FROM topics WHERE id = $1', [id]);
     }
 }
 
