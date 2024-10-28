@@ -5,7 +5,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 /* Importamos methodoverride para el uso de put y delete en formularios que no permiten estos metodos por defecto*/
 import methodOverride from 'method-override';
-import { getAllTopics, postTopic } from './controllers/controladorTemas.js';
+import { getAllTopics, postTopic, voteATopic } from './controllers/controladorTemas.js';
 import { fileURLToPath } from 'url';
 
 /* Instanciamos express */
@@ -30,6 +30,7 @@ app.set('view engine', 'ejs');
 //Topic controller
 app.get('/', getAllTopics);
 app.post('/topics', postTopic);
+app.post('/topics/:id/votes', voteATopic);
 
 
 
