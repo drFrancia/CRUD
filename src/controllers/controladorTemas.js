@@ -14,8 +14,8 @@ export const getAllTopics = async(req, res) => {
 //
 export const postTopic = async (req, res) => {
     try {
-        const { titulo } = req.body;
-        await Topic.createTopic(titulo);
+        const { title } = req.body;
+        await Topic.createTopic(title);
         res.redirect('/');
     } catch (error) {
         console.error("Error al crear un nuevo tema: " + error);
@@ -31,3 +31,14 @@ export const voteATopic = async (req, res) => {
         console.log("Error al votar por el tema.");
     };
 };
+
+export const deleteATopic = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Topic.deleteTopic(id); // Asegúrate de que el nombre coincida
+        res.redirect("/");
+    } catch (error) {
+        console.log("Ocurrió un error al eliminar el tema: " + error);
+    }
+};
+
