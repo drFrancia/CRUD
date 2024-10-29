@@ -16,17 +16,15 @@ app.use(express.json());
 
 /*Configuramos la aplicacion*/
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(methodOverride('_method'));
-app.set('views', './views');
-app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));// ya que los formularios no soportan nativamente el DELETE y el PUT se utiliza el methodOverride para agregar al parametro '_method' y a continuacion el metodo,todo esto siendo un POST
 
 
 //Configuración del entorno de vistas de la aplicación
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); // con el .set() definimos cual seria la ruta de las vistas a tener en cuenta
+app.set('view engine', 'ejs'); // con el .set() definimos que 'ejs' seria nuestro motor de plantilla
 
 
 
